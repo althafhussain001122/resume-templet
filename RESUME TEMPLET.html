@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shaik Althaf Hussain resume</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    .resume {
+      display: flex;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .left {
+      width: 30%;
+      background: #2c2c2c;
+      color: white;
+      padding: 30px 20px;
+    }
+    .left .profile-pic {
+      background: #4b6cb7;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .left .profile-pic img {
+      width: 170px;
+      border-radius: 100%;
+    }
+    .left h2, .left p {
+      margin: 5px 0;
+      text-align: center;
+    }
+    .left .socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .left .section {
+      margin-top: 30px;
+    }
+    .left .skills div {
+      margin-bottom: 10px;
+    }
+    .left .skills progress {
+      width: 100%;
+    }
+
+    .right {
+      width: 70%;
+      padding: 30px;
+      color: #333;
+    }
+    .right h3 {
+      color: #364fc7;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .right .section {
+      margin-top: 20px;
+    }
+    .right .item {
+      margin-bottom: 15px;
+    }
+    .right .item h4 {
+      margin: 5px 0;
+    }
+    .right .item small {
+      float: right;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+<div class="resume">
+  <div class="left" id="leftPanel">
+    <!-- JS will fill this -->
+  </div>
+  <div class="right" id="rightPanel">
+    <!-- JS will fill this -->
+  </div>
+</div>
+
+<script>
+  const resume = {
+    name: "Shaik Althaf Hussain",
+    title: "Full Stack Web Devlopment",
+    github: "github.com/althafhussain001122",
+    linkedin: "www.linkedin.com/in/shaik-althaf-hussain ",
+    phone: "8500144655",
+    email: "althafhussain1122@gmail.com",
+    skills: [
+      { name: "HTML", level: 90 },
+      { name: "CSS", level: 85 },
+      { name: "JavaScript", level: 80 },
+      { name: "React", level: 75 },
+      { name: "Git", level: 70 }
+    ],
+    certificates: ["pw Skills FUll Stack Web Devlopment", "python DS", "DEVOPS"],
+    objective: "“Motivated and detail-oriented Full Stack Web Developer with a strong foundation in front-end and back-end technologies, including HTML, CSS, JavaScript, React, Node.js, and MongoDB. Passionate about building responsive and user-friendly web applications. Seeking an opportunity to contribute to innovative projects, grow technical skills, and deliver scalable solutions in a collaborative team environment.”.",
+    experience: [
+      {
+        role: "Frontend Intern",
+        company: "Tech Corp",
+        duration: "June 2024 - Sept 2024",
+        description: "Worked on building reusable UI components using React and improved site performance."
+      },
+      {
+        role: "Web Developer",
+        company: "Freelance",
+        duration: "Jan 2023 - May 2024",
+        description: "Designed and deployed responsive websites for small businesses."
+      }
+    ],
+    projects: [
+      {
+        name: "Portfolio Website",
+        tech: "HTML, CSS, JavaScript",
+        description: "A personal portfolio website showcasing projects and resume."
+      },
+      {
+        name: "Task Tracker App",
+        tech: "React, Firebase",
+        description: "A real-time task tracking app with authentication and storage."
+      }
+    ],
+    education: [
+      {
+        duration: "2021 - 2025",
+        name: "B.Tech CSE",
+        institution: "St. Mary's College"
+      },
+      {
+        duration: "2019 - 2021",
+        name: "Intermediate",
+        institution: "State Junior College"
+      }
+    ]
+  };
+
+  // Left Panel
+  document.getElementById("leftPanel").innerHTML = `
+    <div class="profile-pic">
+      <img src=file:///C:/Users/Dell/Downloads/Resume-Template-main/Resume-Template-main/images/myImage.jpg>
+    </div>
+    <h2>${resume.name}</h2>
+    <p>${resume.title}</p>
+    <div class="socials">
+      <a href="https://${resume.github}" style="color:white;">GitHub</a>
+      <a href="https://${resume.linkedin}" style="color:white;">LinkedIn</a>
+    </div>
+    <div class="section">
+      <h3>Contact</h3>
+      <p>📞 ${resume.phone}</p>
+      <p>📧 ${resume.email}</p>
+    </div>
+    <div class="section skills">
+      <h3>Skills</h3>
+      ${resume.skills.map(skill => `
+        <div>
+          <strong>${skill.name}</strong>
+          <progress value="${skill.level}" max="100"></progress>
+        </div>`).join('')}
+    </div>
+    <div class="section">
+      <h3>Certificates</h3>
+      <ul>
+        ${resume.certificates.map(c => `<li>${c}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+
+  // Right Panel
+  document.getElementById("rightPanel").innerHTML = `
+    <div class="section">
+      <h3>OBJECTIVE</h3>
+      <p>${resume.objective}</p>
+    </div>
+    <div class="section">
+      <h3>WORK EXPERIENCE</h3>
+      ${resume.experience.map(exp => `
+        <div class="item">
+          <h4>${exp.role} - ${exp.company} <small>${exp.duration}</small></h4>
+          <p>${exp.description}</p>
+        </div>
+      `).join('')}
+    </div>
+    <div class="section">
+      <h3>PROJECTS</h3>
+      ${resume.projects.map(project => `
+        <div class="item">
+          <h4>${project.name}</h4>
+          <strong>${project.tech}</strong>
+          <p>${project.description}</p>
+        </div>
+      `).join('')}
+    </div>
+    <div class="section">
+      <h3>EDUCATION</h3>
+      ${resume.education.map(edu => `
+        <div class="item">
+          <h4>${edu.duration}</h4>
+          <strong>${edu.name}</strong>
+          <p>${edu.institution}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+</script>
+
+</body>
+</html>
